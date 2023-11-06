@@ -1,0 +1,88 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Test 3-4 class</title>
+	<!-- <link rel="stylesheet" href="/src/style.css" /> -->
+</head>
+
+<body class="page" style="
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100%;
+      font-family: sans-serif;
+
+      box-sizing: border-box;
+      min-inline-size: 375px;
+    ">
+	<header class="header"></header>
+	<main style="
+        display: flex;
+        flex-direction: column;
+				justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-size: 18px;
+      ">
+		<div class="main__title" style="font-size: 18px; padding-block-start: 30px;" <div class="first__discription">
+			<div class="title" style="display: flex; justify-content: center;">УВАЖАЕМЫЙ УЧАСТНИК!</div>
+			<p style="display: flex; justify-content: center;">На выполнение этого задания отводится 35 минут</p>
+			<p class="main__text" style="display: flex; justify-content: center;">
+				необходимо уложиться в отведенное время и нажать кнопку "ОТПРАВИТЬ"
+			</p>
+		</div>
+
+		<h1 class="title">
+			<div id="countdown-timer">
+				<h2>35</h2>
+				<p>минут</p>
+			</div>
+		</h1>
+		</div>
+
+		<script>
+			let startTime = Date.now();
+			let duration = 2100000;
+
+			function updateCountdown() {
+				let now = Date.now();
+				let difference = now - startTime;
+
+				if (difference < duration) {
+					let minutes = Math.floor(difference / 1000 / 60);
+					let seconds = Math.floor((difference / 1000) % 60);
+
+					document.getElementById('countdown-timer').innerHTML =
+						minutes + ' мин ' + seconds + ' сек ';
+					setTimeout(updateCountdown, 1000);
+				} else {
+					alert('Время истекло!');
+					document.getElementById('iframeName').style.display = 'none';
+				}
+			}
+
+			updateCountdown();
+		</script>
+
+		<!-- <script src="/src/timer.js"></script> -->
+		<!-- <script src="https://yastatic.net/s3/frontend/forms/_/embed.js"></script> -->
+		<!-- <iframe id="yandex__form"
+        src="https://forms.yandex.ru/cloud/653d2d35f47e73861cb1bc86/?iframe=1"
+        frameborder="0"
+        name="ya-form-653d2d35f47e73861cb1bc86"
+        width="650"
+      ></iframe> -->
+		<iframe
+			src="https://docs.google.com/forms/d/e/1FAIpQLScG35gvTPs40WX5L0nE1FH3ecqP2xNoxJsdFVt5xzZsTCyrag/viewform?embedded=true"
+			width="640" height="22085" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+	</main>
+</body>
+
+</html>

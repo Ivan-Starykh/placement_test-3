@@ -1,0 +1,33 @@
+.page {
+  display: flex;
+  flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+	/* margin: 0 auto; */
+}
+
+#countdown-timer {
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: ;
+}
+
+#countdown-timer h2{
+	color: red;
+	margin: 0;
+	padding: 10px 0;
+	position: relative;
+}
+
+.white-line {
+position: absolute;
+	width: 100%;
+	height: 12rem;
+	background-color: #fff;
+	top: 13rem;
+	left: 0;
+}
