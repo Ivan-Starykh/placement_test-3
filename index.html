@@ -26,16 +26,6 @@
 			height: 100%;
 		}
 
-		/* header {
-			width: 100%;
-			background-color: #4CAF50;
-			color: white;
-			padding: 20px 0;
-			text-align: center;
-			font-size: 24px;
-			font-weight: bold;
-		} */
-
 		main {
 			display: flex;
 			flex-direction: column;
@@ -72,40 +62,46 @@
 			text-align: center;
 		}
 
+		#countdown-timer {
+			width: 100%;
+			background-color: #fff;
+			border-bottom: 1px solid #ddd;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Закрепляем таймер только при прокрутке */
+		.sticky {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1000;
+		}
+
 		#countdown-timer h2 {
-			font-size: 48px;
+			font-size: 36px;
 			margin: 0;
 			color: #e74c3c;
 			font-weight: bold;
 		}
 
 		#countdown-timer p {
-			font-size: 18px;
+			font-size: 16px;
 			color: #555;
+			margin-left: 10px;
 		}
 
 		iframe {
-			/* border-radius: 10px;
-			border: 2px solid #ddd;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			margin-top: 20px; */
-			/* width: 100vw; 100% ширины экрана */ */
-			/* height: 100vh; 100% высоты экрана */ */
+			width: 100vw; /* 100% ширины экрана */
 			border: none;
 			flex-grow: 1; /* Чтобы iframe занимал доступное пространство */
-		
+			margin-top: 20px;
 		}
 
-		/* footer {
-			margin-top: auto;
-			width: 100%;
-			background-color: #4CAF50;
-			color: white;
-			padding: 10px 0;
-			text-align: center;
-		} */
-
-		/* Стили для кастомного модального окна */
 		.modal {
 			display: none;
 			position: fixed;
@@ -156,9 +152,6 @@
 </head>
 
 <body>
-	<header>
-		<!-- Тест для 2-3 классов -->
-	</header>
 
 	<main>
 		<div class="main__title">УВАЖАЕМЫЙ УЧАСТНИК!</div>
@@ -174,11 +167,10 @@
 		</div>
 
 		<iframe id="iframeName" 
-			src="https://docs.google.com/forms/d/e/1FAIpQLSeJouDKWtDd4wGlOhOMeg9eLCXydMglkBVyHPYhZchD9Q_HuQ/viewform?embedded=true" 
-			width="375" height="11450" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+		src="https://docs.google.com/forms/d/e/1FAIpQLSeJouDKWtDd4wGlOhOMeg9eLCXydMglkBVyHPYhZchD9Q_HuQ/viewform?embedded=true" 
+		width="640" height="11320" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 	</main>
 
-	<!-- Кастомное модальное окно -->
 	<div id="customAlert" class="modal">
 		<div class="modal-content">
 			<h2>Время истекло!</h2>
@@ -186,10 +178,6 @@
 			<button onclick="closeCustomAlert()">Закрыть</button>
 		</div>
 	</div>
-
-	<footer>
-		<!-- Удачи на тесте! -->
-	</footer>
 
 	<script>
 		let duration = 900000; // 15 минут в миллисекундах
@@ -223,9 +211,22 @@
 			document.getElementById('customAlert').style.display = 'none';
 		}
 
+		// Функция для закрепления таймера при скролле
+		window.onscroll = function() {
+			let countdownTimer = document.getElementById("countdown-timer");
+			let sticky = countdownTimer.offsetTop;
+
+			if (window.pageYOffset > sticky) {
+				countdownTimer.classList.add("sticky");
+			} else {
+				countdownTimer.classList.remove("sticky");
+			}
+		};
+
 		// Запускаем таймер
 		updateCountdown();
 	</script>
+
 </body>
 
 </html>
