@@ -42,7 +42,7 @@
 			align-items: center;
 			width: 100%;
 			font-size: 18px;
-			padding: 20px;
+			padding: 15px;
 		}
 
 		.main__title {
@@ -84,10 +84,15 @@
 		}
 
 		iframe {
-			border-radius: 10px;
+			/* border-radius: 10px;
 			border: 2px solid #ddd;
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			margin-top: 20px;
+			margin-top: 20px; */
+			width: 100vw; /* 100% ширины экрана */
+			height: 100vh; /* 100% высоты экрана */
+			border: none;
+			flex-grow: 1; /* Чтобы iframe занимал доступное пространство */
+		
 		}
 
 		footer {
@@ -169,7 +174,7 @@
 
 		<iframe id="iframeName" 
 			src="https://docs.google.com/forms/d/e/1FAIpQLSeJouDKWtDd4wGlOhOMeg9eLCXydMglkBVyHPYhZchD9Q_HuQ/viewform?embedded=true" 
-			width="375" height="12967" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+			width="375" height="11450" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 	</main>
 
 	<!-- Кастомное модальное окно -->
@@ -186,7 +191,7 @@
 	</footer>
 
 	<script>
-		let duration = 9000; // 15 минут в миллисекундах
+		let duration = 900000; // 15 минут в миллисекундах
 		let endTime = Date.now() + duration;
 
 		// Функция для обновления таймера
